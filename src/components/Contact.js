@@ -5,15 +5,22 @@ import './Contact.css'
 function Contact(props) {
     return(
         <div className='Contact'>
-            <img className='avatar' src={props.image} alt={props.name} />
-            <div>
-                <p className='name'>{props.name}</p>
+            <img className='avatar' src={props.url} alt={props.name} />
                 <div className='status'>
-                    <div className={props.online ? 'status-online' : 'status-offline'}></div>
-                    <div className='status-text'>{props.status}</div>
+                <h4 className="name">{props.name}</h4>
+            {props.online ? 
+              <div className="status">
+                  <span className="status-online"></span>
+                  <p className="status-text">online</p>
+              </div>
+            :
+              <div className="status">
+                  <span className="status-offline"></span>
+                  <p className="status-text">offline</p>
+              </div>
+            }
                 </div>            
             </div> 
-        </div>
     );
 }
 Contact.prototypes = {
